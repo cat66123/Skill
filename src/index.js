@@ -1,5 +1,9 @@
-module.exports = {
-  name: "hello"
-};
+import React from "react";
+import ReactDOM from "react-dom";
+class IndexComponent extends React.Component {
+  render() {
+    return <h1>hello world!!!123</h1>;
+  }
+}
 
-console.log("cat");
+ReactDOM.render(<IndexComponent />, document.getElementById("root"));
