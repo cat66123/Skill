@@ -1,0 +1,15 @@
+{
+  "name": "Skill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cat66123/Skill.git",
+  "author": "cat66123 <326700510@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack"
+  },
+  "dependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}
