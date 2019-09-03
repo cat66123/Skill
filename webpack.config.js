@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.tsx",
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [".js", ".jsx", ".tsx", ".ts", ".json"]
   },
   output: {
     filename: "bundle.js"
@@ -12,9 +12,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: "awesome-typescript-loader"
+        loader: "babel-loader"
       },
       {
         test: /\.css$/,
