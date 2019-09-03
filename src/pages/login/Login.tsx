@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Button } from "antd";
 
+import { LoginWrapper } from "./style";
+
 class Login extends React.Component {
   render() {
-    return <Button type="primary">提交</Button>;
+    return <LoginWrapper></LoginWrapper>;
   }
 }
 
