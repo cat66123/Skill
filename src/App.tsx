@@ -1,8 +1,9 @@
 import * as React from "react";
+import Login from "./pages/login/Login";
 
 class App extends React.Component {
   render() {
-    return <h1>Cat</h1>;
+    return <Login />;
   }
 }
 
