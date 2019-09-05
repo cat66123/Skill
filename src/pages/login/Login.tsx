@@ -2,7 +2,7 @@ import * as React from "react";
 import { Input, Button } from "antd";
 
 import { LoginWrapper, ContentWrapper } from "./style";
-import { changeUserName } from "../../store/action";
+import { changeUserName } from "./store/action";
 import { connect } from "react-redux";
 
 type Props = {};
@@ -43,7 +43,7 @@ class Login extends React.Component<Props> {
 }
 
 const mapStateToProps = state => ({
-  userName: state.userName
+  userName: state.getIn(["login", "userName"])
 });
 
 const mapDispatchToProps = dispatch => ({

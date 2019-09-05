@@ -1,16 +1,8 @@
-const defaultState = {
-  userName: "bbcc"
-};
+import { combineReducers } from "redux-immutable";
+import loginReducer from "../pages/login/store/reducer";
 
-export default (state = defaultState, action) => {
-  switch (action.type) {
-    case "CHANGE_USERNAME": {
-      let newState = JSON.parse(JSON.stringify(state));
-      newState.userName = action.name;
-      return newState;
-    }
-    default: {
-      return state;
-    }
-  }
-};
+const reducer = combineReducers({
+  login: loginReducer
+});
+
+export default reducer;
