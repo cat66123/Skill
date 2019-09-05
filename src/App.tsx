@@ -9,6 +9,8 @@ import { GlobalStyleFont } from "./statics/iconfont/iconfont";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import { BrowserRouter, Route, HashRouter } from "react-router-dom";
+
 class App extends React.Component {
   render() {
     return (
@@ -16,8 +18,10 @@ class App extends React.Component {
         <GlobalStyleInit />
         <GlobalStyleFont />
         <Provider store={store}>
-          {/* <Login /> */}
-          <Home />
+          <HashRouter>
+            <Route path="/" exact component={Home}></Route>
+            <Route path="/login" exact component={Login}></Route>
+          </HashRouter>
         </Provider>
       </div>
     );
