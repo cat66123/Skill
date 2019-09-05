@@ -16,16 +16,9 @@ class App extends React.Component {
         <GlobalStyleInit />
         <GlobalStyleFont />
         <Provider store={store}>
-          <Login />
+          {/* <Login /> */}
+          <Home />
         </Provider>
-
-        {/* <Home /> */}
-        {/* <Header /> */}
-        {/* <div
-          style={{ height: "800px", background: "#CCFFFF", padding: "60px" }}
-        >
-          aa
-        </div> */}
       </div>
     );
   }
