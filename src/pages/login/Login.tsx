@@ -2,25 +2,15 @@ import * as React from "react";
 import { Input, Button } from "antd";
 
 import { LoginWrapper, ContentWrapper } from "./style";
-import store from "../../store";
 import { changeUserName } from "../../store/action";
+import { connect } from "react-redux";
 
 type Props = {};
 class Login extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
-    this.state = store.getState();
-
-    store.subscribe(this.handleSubscribe.bind(this));
-  }
-  handleSubscribe() {
-    this.setState(store.getState());
   }
 
-  handleOnChange(e) {
-    store.dispatch(changeUserName(e.target.value));
-    console.log(e.target.value);
-  }
   render() {
     return (
       <LoginWrapper>
@@ -33,8 +23,8 @@ class Login extends React.Component<Props> {
               <Input
                 size="large"
                 placeholder="请输入账号"
-                value={this.state.userName}
-                onChange={this.handleOnChange.bind(this)}
+                value={this.props.userName}
+                onChange={this.props.handleOnChange}
               />
             </div>
             <div className="login-input">
@@ -52,4 +42,17 @@ class Login extends React.Component<Props> {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  userName: state.userName
+});
+
+const mapDispatchToProps = dispatch => ({
+  handleOnChange(e) {
+    dispatch(changeUserName(e.target.value));
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
