@@ -12,9 +12,9 @@ class App extends React.Component {
       <div>
         <GlobalStyleInit />
         <GlobalStyleFont />
-        {/* <Login /> */}
+        <Login />
         {/* <Home /> */}
-        <Header />
+        {/* <Header /> */}
         {/* <div
           style={{ height: "800px", background: "#CCFFFF", padding: "60px" }}
         >

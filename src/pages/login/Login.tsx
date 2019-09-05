@@ -2,8 +2,25 @@ import * as React from "react";
 import { Input, Button } from "antd";
 
 import { LoginWrapper, ContentWrapper } from "./style";
+import store from "../../store";
+import { changeUserName } from "../../store/action";
 
-class Login extends React.Component {
+type Props = {};
+class Login extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+    this.state = store.getState();
+
+    store.subscribe(this.handleSubscribe.bind(this));
+  }
+  handleSubscribe() {
+    this.setState(store.getState());
+  }
+
+  handleOnChange(e) {
+    store.dispatch(changeUserName(e.target.value));
+    console.log(e.target.value);
+  }
   render() {
     return (
       <LoginWrapper>
@@ -13,7 +30,12 @@ class Login extends React.Component {
           </div>
           <div className="login-top">
             <div className="login-input">
-              <Input size="large" placeholder="请输入账号" />
+              <Input
+                size="large"
+                placeholder="请输入账号"
+                value={this.state.userName}
+                onChange={this.handleOnChange.bind(this)}
+              />
             </div>
             <div className="login-input">
               <Input.Password size="large" placeholder="请输入密码" />
